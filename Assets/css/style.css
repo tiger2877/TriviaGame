@@ -1,0 +1,239 @@
+body{
+  font-size: 20px;
+  font-family: sans-serif;
+  color: #333;
+  background: url("../images/diagonal-squares.png");;
+}
+.question{
+  font-weight: 600;
+}
+.answers {
+margin-bottom: 20px;
+}
+.answers label{
+display: block;
+}
+#submit{
+  font-family: sans-serif;
+  font-size: 20px;
+  background-color: #279;
+  color: #fff;
+  border: 0px;
+  border-radius: 3px;
+  padding: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+#submit:hover{
+  background-color: #38a;
+}
+
+/* game */
+
+#incorrect-letters { 
+  border:2px dashed blue; 
+  background-color:rgba(100,200,100,.75); 
+  height:1.5em; 
+  font-family:monospaced;
+  letter-spacing:.75em;
+  font-weight:bold;
+  line-height:1.5em;
+  font-size:1.5em;
+  padding:0 10px;
+}
+
+.letter { 
+  float:left; 
+  border-bottom:2px solid black;
+  font-size:2em;
+  color:green;
+  width:2em;
+  height:1em;
+  margin-right:1em;
+  text-align:center;
+}
+
+.winner {
+  background-color:yellow;
+  border:5px solid green;
+  height:2.5em;
+}
+
+.normal {
+  background-color:white;
+  border:5px dashed green;
+  height:1.5em;
+}
+
+
+/* general */
+
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  clear: both;
+  color: wheat;
+}
+
+.jumbotron {
+	background-color: #428bca
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-bottom: 20px;
+  color: antiquewhite;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-weight: 700;
+  color:white;
+}
+
+h1 {
+  padding-bottom: 20px;
+  font-size: 30px;
+  line-height: 49px;
+  border-bottom: 3px solid #dddddd;
+}
+
+h2,
+h3 {
+  font-size: 22px;
+}
+
+h4 {
+  font-size: 18px;
+  text-align: center;
+  color:whitesmoke;
+  }
+
+/* header */
+
+#masterhead {
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  margin: 0 0 30px;
+  overflow:hidden;
+  color: #ffffff;
+  background: #ffffff;
+  border-bottom: 2px solid #cccccc;
+}
+
+#logo {
+  float: left;
+  width: 250px;
+  height: 90px;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 90px;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  background: #4aaaa5;
+}
+
+#game {
+ color: antiquewhite;
+}
+
+
+nav {
+  float: right;
+  margin-top: 25px;
+}
+
+nav a {
+  display: inline-block;
+  padding-left: 15px;
+  margin-left: 15px;
+  line-height: 18px;
+  color: #999;
+  text-decoration: none;
+  border-left: 1px solid #efefef;
+}
+
+nav a:first-child {
+  border-left: 0 none;
+}
+
+/* unvisited link */
+a:link {
+  color: red;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+}
+
+/* footer */
+
+footer {
+  padding: 50px 0;
+  clear: both;
+  font-size: 12px;
+  color: #ffffff;
+  text-align: center;
+  height: 50px;
+}
+
+/* sticky footer 
+   https://css-tricks.com/couple-takes-sticky-footer/ */
+
+   .wrapper {
+    height: 100%;
+    min-height: 100%;
+    margin: 0 auto -100px;
+  }
+  
+  footer,
+  .push {
+    height: 50px;
+  }
+
+h3, h2 {
+  padding-bottom: 20px;
+  margin-bottom: 15px;
+  line-height: 22px;
+  border-bottom: 2px solid #eeeeee;
+}
+
+/* main */
+
+#main-container {
+  padding-top: 50px;
+  min-height: calc(100vh - 70px);
+}
+
+.main-section {
+  float: left;
+  width: 100%;
+  max-width: 960px;
+  padding: 30px;
+  margin: 0 0 40px;
+  background: #ffffff;
+  border: 1px solid #dddddd;
+}
