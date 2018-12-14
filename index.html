@@ -1,58 +1,55 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Psychic Game</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Marvel Trivia</title>
 
     <!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	<!-- Linking CSS -->
-
-    <!-- Custom styles for this template -->
-    <link href="Assets/css/reset.css" rel="stylesheet">
-    <link href="Assets/css/style.css" rel="stylesheet">
     
-  </head>
-
-  <body>
-   
-    <header>
-        
-          <img class="image" src="Assets/images/crystallball.jpg" alt="the Psychic Game">
-          <h1 style="text-align: center">The Psychic Game</h1>
+    <!-- Linking CSS -->
+    <link rel="stylesheet" type="text/css" href="Assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="Assets/css/style.css">
   
-    </header>
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<!-- Content here -->
-<div class="wrapper">
+  	<!-- Linking Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat|Roboto+Slab|Yellowtail' rel='stylesheet' type='text/css'>
+    
+</head>
+<body>
 
-    <!-- Main Body goes in Container -->
-<div id="main-container" class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <p style="color: aquamarine; font-size: 23px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Can you guess what letter I am thinking of?</p>
         
-            <div id="quiz"></div>
-            <button id="submit">Submit Quiz</button>
-            <div id="results"></div>
-            </div>
-
+<header>
+              
+    <div class="container">
+        <img class="image" src="Assets/images/marvel.jpg" alt="Marvel Trivia Game" width="800" height="400">
+            <h1>Marvel Trivia Game</h1>
+            <p>Do you know much about the Marvel Comics? Let's play this quiz and check your score now!</p>
     </div>
-   
-    <!-- Sticky Footer -->
+            
+</header>
+        
+              
+<section>
+    <div class="container">
+        
     <div class="row">
-        <div class="col-md-12">  
-            <div class="footer">
-                 <footer>
-                 © 2018 Pryambudhi Cahyadi &copy; 
-                </footer>
+        <div class="col-md-8">
+            <div id="show-number"></div>
+                <div class="text-center">
+
+                    <div id="quiz"></div>
+                    <button class="btn btn-primary" id="start">START</button>
+                </div>
+                        
             </div>
         </div>
     </div>
-
-    </div>
-</div>
+</section>
 
 <script type="text/javascript" src="Assets/javascript/game.js"></script>
 

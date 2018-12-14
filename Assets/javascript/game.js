@@ -1,5 +1,3 @@
-  
-  
   /*-- TRIVIA GAME -->
   <!-- ================================================================ -->
   <!-- Find the selected answer in the HTML                             -->
@@ -8,108 +6,168 @@
   <!--                                                                  -->
   <!-- ================================================================ -->*/
   
-  (function() {
-    function buildQuiz() {
-      // we'll need a place to store the HTML output
-      const output = [];
+   /* Global Variables
+  ---------------------------------------------------------------------- */
   
-      // for each question...
-      myQuestions.forEach((currentQuestion, questionNumber) => {
-        // we'll want to store the list of answer choices
-        const answers = [];
+  var intervalId;
+  var correctAnswer = 0;
+  var incorrectAnswer = 0;
+  var unanswered = 0;
+  var timer = 20;
   
-        // and for each available answer...
-        for (letter in currentQuestion.answers) {
-          // ...add an HTML radio button
-          answers.push(
-            `<label>
-              <input type="radio" name="question${questionNumber}" value="${letter}">
-              ${letter} :
-              ${currentQuestion.answers[letter]}
-            </label>`
-          );
+  // Create an object to store all the questions and answers
+  const myQuestions = [
+        {
+          questionNumber: "1",
+          question: "The Fantastic Four have the headquarters in what building?",
+          answers: [
+            "Stark Tower",
+            "Fantastic Headquarters",
+            "Baxter Building",
+            "Xavier Institute"
+          ],
+          correctAnswer: "Stark Tower"
+        },
+        {
+          questionNumber: "2",
+          question: "Peter Parker works as a photographer for:",
+          answers: [
+              "The Daily Planet",
+              "The Daily Bugle",
+              "The New York Times",
+              "The Rolling Stone"
+        ],
+          correctAnswer: "The Daily Planet"
+        },
+        {
+          questionNumber: "3",
+          question: "Ghost Rider is known as:",
+          answers: [ 
+              "The Guardian Devil", 
+              "The Spirit of Hate",
+              "The Spirit of Vengeance", 
+              "The Red Skull"
+        ],
+          correctAnswer: "The Red Skull"
+        },
+        {
+          questionNumber: "4",
+          question: "Captain America was frozen in which war?",
+          answers: [ 
+              "World War I", 
+              "World War II",
+              "Cold War", 
+              "American Civil War"
+        ],
+          correctAnswer: "Cold War"
+        },
+        {
+          questionNumber: "5",
+          question: "What vehicle is the Avengers primary mode of transport?",
+          answers: [ 
+              "A bus", 
+              "The Quinjet",
+              "The Blackbird", 
+              "The Blackhawk"
+        ],
+          correctAnswer: "The Quinjet"
         }
+      ];
   
-        // add this question and its answers to the output
-        output.push(
-          `<div class="question"> ${currentQuestion.question} </div>
-          <div class="answers"> ${answers.join("")} </div>`
-        );
-      });
+  /* When an answer is clicked perform form check input
+  ---------------------------------------------------------------------- */
   
-      // finally combine our output list into one string of HTML and put it on the page
-      quizContainer.innerHTML = output.join("");
+  $(document).on("click", ".form-check-input", function() {
+  
+  //retrieve the value of questionIndex created for each answer that is clicked
+    var index = $(this).attr("questionIndex");
+      //   console.log(this);
+  
+  //if correct answer is chosen add correct answer
+    if($(this).attr("value") == myQuestions[index].correctAnswer){
+      correctAnswer++;
+  //if incorrect answer is chosen add incorrect answer
+    } else if($(this).attr("value") !== myQuestions[index].correctAnswer) {
+      incorrectAnswer++;
     }
   
-    function showResults() {
-      // gather answer containers from our quiz
-      const answerContainers = quizContainer.querySelectorAll(".answers");
+      //   console.log(myQuestions.length);
+      //   console.log(incorrectAnswer);
+      //   console.log(correctAnswer);
   
-      // keep track of user's answers
-      let numCorrect = 0;
+    // Show unanswered questions
+    unanswered = myQuestions.length - (incorrectAnswer + correctAnswer);
   
-      // for each question...
-      myQuestions.forEach((currentQuestion, questionNumber) => {
-        // find selected answer
-        const answerContainer = answerContainers[questionNumber];
-        const selector = `input[name=question${questionNumber}]:checked`;
-        const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+  })
   
-        // if answer is correct
-        if (userAnswer === currentQuestion.correctAnswer) {
-          // add to the number of correct answers
-          numCorrect++;
+  // Games starts when the start button is clicked
+  // Hide start button once clicked
+  $("#start").on("click", function() {
+    $("#start").hide();
   
-          // color the answers green
-          answerContainers[questionNumber].style.color = "lightgreen";
-        } else {
-          // if answer is wrong or blank
-          // color the answers red
-          answerContainers[questionNumber].style.color = "red";
-        }
-      });
   
-      // show number of correct answers out of total
-      resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+    // Call timer function
+    countDown();
+    
+    
+    //Build quiz
+    //display questions number for each question...
+    for (var i = 0; i < myQuestions.length; i++) {
+      $(".col-md-8").append("<div class='questionNumber'>Question #" + myQuestions[i].questionNumber + "/" + myQuestions.length + "</div>");
+  
+      //display questions
+  
+          $(".col-md-8").append("<h2>" + myQuestions[i].question + "</h2>");
+  
+      //display answers
+      //create a radio button for each answers
+          for (var j = 0; j < myQuestions[i].answers.length; j++) { 
+              
+              $(".col-md-8").append("<div class='form-check'><input class='form-check-input' type='radio' questionIndex='" + i + "' value='" + myQuestions[i].answers[j] + "'><label class='form-check-label'>" + myQuestions[i].answers[j] + "</label></div>");
+    
+          }
     }
   
-    const quizContainer = document.getElementById("quiz");
-    const resultsContainer = document.getElementById("results");
-    const submitButton = document.getElementById("submit");
-    const myQuestions = [
-      {
-        question: "Who is the strongest?",
-        answers: {
-          a: "Superman",
-          b: "The Terminator",
-          c: "Waluigi, obviously"
-        },
-        correctAnswer: "c"
-      },
-      {
-        question: "What is the best site ever created?",
-        answers: {
-          a: "SitePoint",
-          b: "Simple Steps Code",
-          c: "Trick question; they're both the best"
-        },
-        correctAnswer: "c"
-      },
-      {
-        question: "Where is Waldo really?",
-        answers: {
-          a: "Antarctica",
-          b: "Exploring the Pacific Ocean",
-          c: "Sitting in a tree",
-          d: "Minding his own business, so stop asking"
-        },
-        correctAnswer: "d"
-      }
-    ];
   
-    // display quiz right away
-    buildQuiz();
+    // Create a submit button
+    $(".col-md-8").append("<div class='text-center'><button class='btn btn-primary results' id='results'>Results</button></div>");
+    
+    $("#results").on("click", function() {
+      results();
+    })
+    
+  })
   
-    // on submit, show results
-    submitButton.addEventListener("click", showResults);
-  })();
+  
+  //show Results
+  
+  function results() {
+    clearInterval(intervalId);
+    $(".col-md-8").html("<div class='col-md-8 text-center'><h3>All Done!</h3><p><strong>Correct Answers:</strong> " + correctAnswer + "</p><p><strong>Incorrect Answers:</strong> " + incorrectAnswer + "</p><p><strong>Unanswered:</strong> " + unanswered + "</p></div>");
+  }
+  
+  // Timer function
+  /*---------------------------------------------------------------------- */
+  function countDown() {
+  
+  // Clearing the intervalId prior to setting our new intervalId will not allow multiple instances.
+  function run() {
+    clearInterval(intervalId);
+    intervalId = setInterval(decrement, 1000);
+  }
+  
+  // The decrement function.
+  function decrement() {
+    timer--;
+    $("#show-number").html("<h4>Time Remaining: " + timer + "</h4>");
+  
+    //  Once number hits zero...
+    if (timer === 0) {
+      results();
+    }
+  }
+  
+  // Execute the run function.
+  run();
+  }
+  /*---------------------------------------------------------------------- */
