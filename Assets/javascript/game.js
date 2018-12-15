@@ -114,24 +114,24 @@
     //Build quiz
     //display questions number for each question...
     for (var i = 0; i < myQuestions.length; i++) {
-      $(".col-md-8").append("<div class='questionNumber'>Question #" + myQuestions[i].questionNumber + "/" + myQuestions.length + "</div>");
+      $("#quiz").append("<div class='questionNumber'>Question #" + myQuestions[i].questionNumber + "/" + myQuestions.length + "</div>");
   
       //display questions
   
-          $(".col-md-8").append("<h2>" + myQuestions[i].question + "</h2>");
+          $("#quiz").append("<h2>" + myQuestions[i].question + "</h2>");
   
       //display answers
       //create a radio button for each answers
           for (var j = 0; j < myQuestions[i].answers.length; j++) { 
               
-              $(".col-md-8").append("<div class='form-check'><input class='form-check-input' type='radio' questionIndex='" + i + "' value='" + myQuestions[i].answers[j] + "'><label class='form-check-label'>" + myQuestions[i].answers[j] + "</label></div>");
+              $("#quiz").append("<div class='form-check'><input class='form-check-input' type='radio' questionIndex='" + i + "' value='" + myQuestions[i].answers[j] + "'><label class='form-check-label'>" + myQuestions[i].answers[j] + "</label></div>");
     
           }
     }
   
   
     // Create a submit button
-    $(".col-md-8").append("<div class='text-center'><button class='btn btn-primary results' id='results'>Results</button></div>");
+    $("#quiz").append("<div class='text-center'><button class='btn btn-primary results' id='results'>Results</button></div>");
     
     $("#results").on("click", function() {
       results();
@@ -144,7 +144,7 @@
   
   function results() {
     clearInterval(intervalId);
-    $(".col-md-8").html("<div class='col-md-8 text-center'><h3>All Done!</h3><p><strong>Correct Answers:</strong> " + correctAnswer + "</p><p><strong>Incorrect Answers:</strong> " + incorrectAnswer + "</p><p><strong>Unanswered:</strong> " + unanswered + "</p></div>");
+    $("#quiz").html("<div class='col-md-8 text-center'><h3>All Done!</h3><p><strong>Correct Answers:</strong> " + correctAnswer + "</p><p><strong>Incorrect Answers:</strong> " + incorrectAnswer + "</p><p><strong>Unanswered:</strong> " + unanswered + "</p></div>");
   }
   
   // Timer function
