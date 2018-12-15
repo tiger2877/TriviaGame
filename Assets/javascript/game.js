@@ -150,8 +150,12 @@
   // Timer function
   /*---------------------------------------------------------------------- */
   function countDown() {
-  
+
+  //  The run function sets an interval
+  //  that runs the decrement function once a second.
+  //  *****BUG FIX******** 
   // Clearing the intervalId prior to setting our new intervalId will not allow multiple instances.
+  
   function run() {
     clearInterval(intervalId);
     intervalId = setInterval(decrement, 1000);
@@ -159,11 +163,17 @@
   
   // The decrement function.
   function decrement() {
+
+    //  Decrease number by one.
     timer--;
+
+    //  Show the number in the #show-number tag.
     $("#show-number").html("<h4>Time Remaining: " + timer + "</h4>");
   
     //  Once number hits zero...
     if (timer === 0) {
+
+    // Show the results
       results();
     }
   }
