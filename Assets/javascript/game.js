@@ -80,7 +80,7 @@
   $(document).on("click", ".form-check-input", function() {
   
   //retrieve the value of questionIndex created for each answer that is clicked
-    var index = $(this).attr("questionIndex");
+    var index = $(this).attr("name");
       //   console.log(this);
   
   //if correct answer is chosen add correct answer
@@ -124,14 +124,14 @@
       //create a radio button for each answers
           for (var j = 0; j < myQuestions[i].answers.length; j++) { 
               
-              $("#quiz").append("<div class='form-check'><input class='form-check-input' type='radio' questionIndex='" + i + "' value='" + myQuestions[i].answers[j] + "'><label class='form-check-label'>" + myQuestions[i].answers[j] + "</label></div>");
+              $("#quiz").append("<div class='form-check'><input class='form-check-input' type='radio' name='" + i + "' value='" + myQuestions[i].answers[j] + "'><label class='form-check-label'>" + myQuestions[i].answers[j] + "</label></div>");
     
           }
     }
   
   
     // Create a submit button
-    $("#quiz").append("<div class='text-center'><button class='btn btn-primary results' id='results'>Results</button></div>");
+    $("#quiz").append("<button class='btn btn-primary results' id='results'>Results</button>");
     
     $("#results").on("click", function() {
       results();
@@ -144,7 +144,7 @@
   
   function results() {
     clearInterval(intervalId);
-    $("#quiz").html("<h3>All Done!</h3><p><strong>Correct Answers:</strong> " + correctAnswer + "</p><p><strong>Incorrect Answers:</strong> " + incorrectAnswer + "</p><p><strong>Unanswered:</strong> " + unanswered + "</p>");
+    $(".col-md-8").html("<h3>All Done!</h3><p><strong>Correct Answers:</strong> " + correctAnswer + "</p><p><strong>Incorrect Answers:</strong> " + incorrectAnswer + "</p><p><strong>Unanswered:</strong> " + unanswered + "</p>");
   }
   
   // Timer function
@@ -155,7 +155,7 @@
   //  that runs the decrement function once a second.
   //  *****BUG FIX******** 
   // Clearing the intervalId prior to setting our new intervalId will not allow multiple instances.
-  
+
   function run() {
     clearInterval(intervalId);
     intervalId = setInterval(decrement, 1000);
