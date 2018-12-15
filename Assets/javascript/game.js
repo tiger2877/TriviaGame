@@ -144,7 +144,7 @@
   
   function results() {
     clearInterval(intervalId);
-    $(".col-md-8").html("<h3>All Done!</h3><p><strong>Correct Answers:</strong> " + correctAnswer + "</p><p><strong>Incorrect Answers:</strong> " + incorrectAnswer + "</p><p><strong>Unanswered:</strong> " + unanswered + "</p>");
+    $("#quiz").html("<h3>All Done!</h3><p><strong>Correct Answers:</strong> " + correctAnswer + "</p><p><strong>Incorrect Answers:</strong> " + incorrectAnswer + "</p><p><strong>Unanswered:</strong> " + unanswered + "</p>");
   }
   
   // Timer function
