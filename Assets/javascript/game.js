@@ -85,7 +85,8 @@
   
   //if correct answer is chosen add correct answer
     if($(this).attr("value") == myQuestions[index].correctAnswer){
-      correctAnswer++;
+      correctAnswer++;    
+
   //if incorrect answer is chosen add incorrect answer
     } else if($(this).attr("value") !== myQuestions[index].correctAnswer) {
       incorrectAnswer++;
