@@ -92,7 +92,12 @@
     } else if($(this).attr("value") !== myQuestions[index].correctAnswer) {
       incorrectAnswer++;
     }
-    
+      //   console.log(myQuestions.length);
+      //   console.log(incorrectAnswer);
+      //   console.log(correctAnswer);
+  
+    // Show unanswered questions
+    unanswered = myQuestions.length - (incorrectAnswer + correctAnswer);
   })
   
   // Games starts when the start button is clicked
@@ -129,12 +134,7 @@
     
     $("#results").on("click", function() {
       results();
-      //   console.log(myQuestions.length);
-      //   console.log(incorrectAnswer);
-      //   console.log(correctAnswer);
-  
-    // Show unanswered questions
-    unanswered = myQuestions.length - (incorrectAnswer + correctAnswer);
+    
     })
     
   })
