@@ -121,6 +121,7 @@
   
       //display answers
       //create a radio button for each answers
+      //use the "name" attribute to tie them all together...preventing multiple checkbox from being selected
           for (var j = 0; j < myQuestions[i].answers.length; j++) { 
               
               $("#quiz").append("<div class='form-check'><input class='form-check-input' type='radio' name='" + i + "' value='" + myQuestions[i].answers[j] + "'><label class='form-check-label'>" + myQuestions[i].answers[j] + "</label></div>");
