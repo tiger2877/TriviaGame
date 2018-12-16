@@ -39,5 +39,3 @@ In this assignment, You'll create a Trivia game using JavaScript for the logic a
 * Don't let the player pick more than one answer per question.
 
 * Don't forget to include a countdown timer.
-
-### Option Two: Advanced Assignment (Timed Questions)
