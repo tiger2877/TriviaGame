@@ -3,7 +3,8 @@
   <!-- Find the selected answer in the HTML                             -->
   <!-- Handle what happens if the answer is correct.                    -->
   <!-- Handle what happens if the answer is wrong.                      -->
-  <!--                                                                  -->
+  <!-- Game ends when the time runs out                                 -->
+  <!-- Don't let the player pick more than one answer per question      -->
   <!-- ================================================================ -->*/
   
    /* Global Variables
