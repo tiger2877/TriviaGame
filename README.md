@@ -26,7 +26,7 @@ In this assignment, You'll create a Trivia game using JavaScript for the logic a
 
 ### Option One: Basic Quiz (Timed Form)
 
-![Basic](Images/1-basic.jpg)
+![Basic](1-basic.jpg)
 
 **[Click Here to Watch the Demo](https://youtu.be/fBIj8YsA9dk)**.
 
